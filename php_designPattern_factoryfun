@@ -1,0 +1,50 @@
+<?php
+interface Tell{
+	function call();
+	function receive();
+}
+
+class XiaoMi implements Tell{
+	function call(){
+		echo 'make a calling using xiaomi';
+	}
+	function receive(){
+		echo 'receive a calling using xiaomi';
+	}
+}
+
+
+
+class HuaWei implements Tell
+{
+	function call()
+	{
+		echo 'make a calling using huawei';
+	}
+	function receive(){
+		echo 'receive a calling using huawei';
+	}
+}
+
+interface Factory{
+	static function createPhone();
+}
+
+
+class XiaoMiFactory implements Factory
+{
+	static function createPhone(){
+		return new XiaoMi();
+	}
+}
+
+class HuaWeiFactory implements Factory
+{
+	static function createPhone(){
+		return new HuaWei();
+	}
+}
+
+$huawei=HuaWeiFactory::createPhone();
+$huawei->call();
+?>

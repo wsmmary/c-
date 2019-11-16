@@ -1,0 +1,39 @@
+<?php
+
+class Man{
+	protected $observers=[];
+
+	function addObserver($observer){
+		$this->observers[]=$observer;
+	}
+
+	function buy(){
+		foreach ($this->observers as $girl) {
+			$girl->blocking();
+		}
+	}
+
+	function delObserver($observer){
+		$key=array_search($observer,$this->observers);
+		array_splice($this->observers, $key,1);
+	}
+
+}
+
+class GirlFriend{
+	function blocking(){
+		echo 'block the card<br/>';
+	}
+}
+
+
+$xiaoming=new Man();
+$xiaohua=new GirlFriend();
+$xiaoli=new GirlFriend();
+
+$xiaoming->addObserver($xiaohua);
+$xiaoming->addObserver($xiaoli);
+
+$xiaoming->delObserver($xiaoli);
+$xiaoming->buy();
+?>

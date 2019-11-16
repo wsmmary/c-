@@ -1,0 +1,41 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package interviewfizzbuzz;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ *
+ * @author wangsumei
+ */
+public class InterviewFizzBuzz {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n=15;
+        List re1=fizzBuzz(n);
+        for(int i=0;i<re1.size();i++){
+            System.out.println(re1.get(i));
+        }
+    }
+     public static List<String> fizzBuzz(int n) {
+        // write your code here
+        List re=new ArrayList();
+        for(int i=1;i<=n;i++){
+            if(i%3==0 && i%5==0)  re.add("fizzBuzz");
+            else if (i%3==0 && i%5!=0) re.add("fizz");
+            else if(i%5==0 && i%3!=0) re.add("buzz");
+            else if(i%5!=0 && i%3!=0) re.add(String.valueOf(i));
+        }
+        return re;
+    }   
+}

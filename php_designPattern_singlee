@@ -1,0 +1,30 @@
+<?php
+
+class Dog{
+	private function __construct(){
+
+	}
+
+	//set a static property to save the single object
+	static private $instance;
+
+	//static method to create single object
+	static public function getInstance(){
+		if(!self::$instance){
+			self::$instance=new self();
+		}
+		return self::$instance;
+	}
+}
+
+$dog1=Dog::getInstance();
+$dog2=Dog::getInstance();
+
+if($dog1===$dog2){
+	echo "The two instances are the same object";
+}else{
+	echo "They are two objects";
+}
+
+
+?>

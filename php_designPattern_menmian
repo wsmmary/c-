@@ -1,0 +1,45 @@
+<?php
+class Light{
+	function turnOn(){
+		echo 'turn on the light<br/>';
+	}
+	function turnOff(){
+		echo 'turn off the light<br/>';
+	}	
+
+}
+
+class Camera{
+	function active(){
+		echo 'turn on the camera<br/>';
+	}
+	function deactive(){
+		echo 'turn off the camera<br/>';
+	}
+}
+
+class Facade{
+	protected $light;
+	protected $camera;
+
+	function __construct(){
+		$this->light=new Light();
+		$this->camera=new Camera();
+	}
+	function start(){
+		$this->light->turnOn();
+		$this->camera->active();
+	}
+	function stop(){
+		$this->light->turnOff();
+		$this->camera->deactive();
+	}
+}
+
+
+$f=new Facade();
+$f->start();
+$f->stop();
+
+
+?>

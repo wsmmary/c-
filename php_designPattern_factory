@@ -1,0 +1,47 @@
+
+<?php
+//factory designpattern: it is actually a creator of objects which have a common interface.
+interface Skill{
+	function family();
+	function buy();
+}
+
+
+class Person implements Skill{
+	
+	function family(){
+		echo "The people are working hard.";
+	}
+	function buy(){
+		echo "The people are shopping.";
+	}
+
+}
+
+
+class elf implements Skill{
+	function family(){
+		echo 'The elf are working hard.';
+	}
+	function buy(){
+		echo 'The elf are shopping.';
+	}
+}
+
+class Factory{
+	static function createHero($type){
+		switch ($type) {
+			case 'person':
+				return new Person();
+				break;
+			case 'elf':
+				return new elf();
+				break;
+
+		}
+	}
+}
+
+$person=Factory::createHero('person');
+$elf=Factory::createHero('elf');
+?>

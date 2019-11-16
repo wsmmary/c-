@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package interviewimpstr;
+
+/**
+ *
+ * @author wangsumei
+ */
+public class InterviewImpStr {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+//        String source="abcdef";
+//        String target="bc";
+        String source="tartarget";
+        String target="target";
+        System.out.println(ImpStr(source,target));
+    }
+    public static int ImpStr(String source, String target){
+//        System.out.println("the first letter="+target.substring(0,1));
+        if(target.isEmpty() && source.isEmpty()) return 0;
+        else if(target.isEmpty() && !source.isEmpty()) return -1;
+        else{
+        
+            if(source.contains(target))
+              return source.indexOf(target);
+            else
+                return -1;
+        }
+
+    }
+    
+}

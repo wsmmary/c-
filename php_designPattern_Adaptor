@@ -1,0 +1,35 @@
+<?php
+
+interface PerfectMan{
+	function cook();
+	function writePhp();
+}
+
+class wife{
+	function cook(){
+		echo 'I can do everything<br/>';
+	}
+}
+
+class Man implements PerfectMan{
+	
+	protected $wife;
+	function __construct($wife){
+		$this->wife=$wife;
+	}
+
+	function cook(){
+		$this->wife->cook();
+	}
+
+	function writePhp(){
+		echo 'I can write php coding<br/>';
+	}
+
+
+}
+$li=new wife();
+$ming=new Man($li);
+$ming->writePhp();
+$ming->cook();
+?>

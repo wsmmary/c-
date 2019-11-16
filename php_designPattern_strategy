@@ -1,0 +1,35 @@
+<?php
+interface Love{
+	function sajiao();
+}
+
+class keAi implements Love{
+	function sajiao(){
+		echo 'i do not want to talk with you<br/>';
+	}
+}
+
+class Tiger implements Love{
+	function sajiao(){
+		echo 'come here';
+	}
+}
+
+class GirlFriend{
+	protected $xingge;
+
+	function __construct($xingge){
+		$this->xingge=$xingge;
+	}
+
+	function sajiao(){
+		$this->xingge->sajiao();
+	}
+}
+
+
+$keai=new keAi();
+$li=new GirlFriend($keai);
+$li->sajiao();
+
+?>

@@ -1,0 +1,53 @@
+  /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package interviewtwosum;
+
+import java.util.Arrays;
+
+/**
+ *
+ * @author wangsumei
+ */
+public class InterviewTwoSum {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int nums[]=new int[]{0,4,3,0};
+        int target=0;
+        int result[]=new int[2];
+        result=twoSum(nums,target);
+        System.out.println(Arrays.toString(result));
+
+    }
+    public static int[] twoSum(int[] numbers, int target){
+        int[] returnIndex=new int[2];
+        int temp,position;
+        
+        for(int i=0;i<numbers.length;i++){
+            temp=target-numbers[i];
+            position=contains(numbers,temp,i);
+            if(position>0){
+                returnIndex[0]=i;
+                returnIndex[1]=position;
+                return returnIndex;
+            }
+            System.out.println("");
+        }
+
+        return returnIndex;
+    }
+    public static int contains(final int[] array,final int key,final int po){
+        for(int i=po+1;i<array.length;i++){
+            if(array[i]==key)
+                return i;
+        }
+        return -1;
+    }
+}

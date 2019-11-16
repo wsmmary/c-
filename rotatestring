@@ -1,0 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package interviewrotatestring;
+
+import java.util.Arrays;
+
+/**
+ *
+ * @author wangsumei
+ */
+public class InterviewRotateString {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        char[] str=new char[]{'a','b','c','d','e','f','g'};
+        int offset=3;
+        rotateString(str,offset);
+    }
+    public static void rotateString(char[] str, int offset) {
+        // write your code here
+        char[] temp=new char[offset+1];
+        char[] result=new char[str.length];
+
+         System.arraycopy(str, 0, temp, 0, offset+1);
+         System.arraycopy(str, str.length-offset, result, 0, str.length-offset-1);
+         System.arraycopy(temp, 0, result, str.length-offset-1, temp.length);
+         String re=new String(result,0,str.length);
+         System.out.println(re);   
+        
+    }
+    
+}
